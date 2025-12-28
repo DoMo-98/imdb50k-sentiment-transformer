@@ -1,34 +1,34 @@
-# API de Análisis de Sentimientos
+# Sentiment Analysis API
 
-API REST para análisis de sentimientos en tiempo real usando un modelo Transformer personalizado entrenado en el dataset IMDB.
+REST API for real-time sentiment analysis using a custom Transformer model trained on the IMDB dataset.
 
-## Características
+## Features
 
-- Clasificación binaria de sentimientos (positivo/negativo)
-- Puntuaciones de confianza para las predicciones
-- Modelo precargado para inferencia rápida
-- Validación de entrada y manejo de errores
-- Documentación interactiva de la API
+- Binary sentiment classification (positive/negative)
+- Confidence scores for predictions
+- Preloaded model for fast inference
+- Input validation and error handling
+- Interactive API documentation
 
-## Inicio Rápido
+## Quick Start
 
-**Importante**: Los archivos Docker están en la raíz del proyecto, no en la carpeta `app/`.
+**Important**: Docker files are in the project root, not in the `app/` folder.
 
-### Docker (Recomendado)
+### Docker (Recommended)
 ```bash
 cd ..
 docker-compose up -d
 curl http://localhost:8000/health
 ```
 
-## Endpoints de la API
+## API Endpoints
 
-### Verificación de Estado
+### Health Check
 ```
 GET /health
 ```
 
-### Predicción de Sentimiento
+### Sentiment Prediction
 ```
 POST /api/v1/predict-sentiment
 Content-Type: application/json
@@ -38,7 +38,7 @@ Content-Type: application/json
 }
 ```
 
-Respuesta:
+Response:
 ```json
 {
   "sentiment": "positive",
@@ -47,35 +47,35 @@ Respuesta:
 }
 ```
 
-### Información del Modelo
+### Model Information
 ```
 GET /api/v1/model-info
 ```
 
-## Validación de Entrada
+## Input Validation
 
-- Longitud del texto: 1-5000 caracteres
-- El texto no puede estar vacío o contener solo espacios
-- Retorna códigos de estado HTTP apropiados (200, 400, 422, 500)
+- Text length: 1-5000 characters
+- Text cannot be empty or contain only spaces
+- Returns appropriate HTTP status codes (200, 400, 422, 500)
 
-## Configuración
+## Configuration
 
-La configuración por defecto está definida en `core/config.py`. No se requiere configuración adicional.
+The default configuration is defined in `core/config.py`. No additional configuration is required.
 
-## Documentación
+## Documentation
 
-Una vez ejecutándose, accede a:
+Once running, access:
 - Swagger UI: http://localhost:8000/docs
 - ReDoc: http://localhost:8000/redoc
 
-## Información del Modelo
+## Model Information
 
-- Tipo: Mini-transformer personalizado
-- Dataset: IMDB 50k reseñas de películas
-- Precisión: >70%
-- Formato: TensorFlow SavedModel
-- Preprocesamiento: Integrado en el modelo
+- Type: Custom mini-transformer
+- Dataset: IMDB 50k movie reviews
+- Accuracy: >70%
+- Format: TensorFlow SavedModel
+- Preprocessing: Built into the model
 
 ---
 
-**Proyecto Deep Learning - TokioSchool** | Eric Domínguez Morales
+**Deep Learning Project - TokioSchool** | Eric Dominguez Morales
